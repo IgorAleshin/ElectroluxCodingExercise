@@ -120,3 +120,22 @@ final class MainScreenView: UIViewController, MainScreenInput {
 extension MainScreenView: UICollectionViewDelegate {
 
 }
+
+extension MainScreenView: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let contentOffsetY = scrollView.contentOffset.y
+        let viewHeight = scrollView.bounds.height
+        guard let page = ceil(contentOffsetY / viewHeight).toInt() else { return }
+        output?.fetchMore(for: page)
+    }
+}
+
+fileprivate extension CGFloat {
+    func toInt() -> Int? {
+        if self >= CGFloat(Int.min) && self < CGFloat(Int.max) {
+            return Int(self)
+        } else {
+            return nil
+        }
+    }
+}

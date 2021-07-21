@@ -14,4 +14,5 @@ protocol MainScreenInput: AnyObject {
 protocol MainScreenOutput: AnyObject {
     func viewLoaded()
     func viewAppeared()
+    func fetchMore(for page: Int)
 }
