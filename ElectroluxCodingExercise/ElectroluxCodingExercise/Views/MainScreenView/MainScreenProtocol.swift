@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MainScreenInput: AnyObject {
-
+    func update(with viewModels: [PhotoCellViewModel])
 }
 
 protocol MainScreenOutput: AnyObject {

@@ -33,14 +33,26 @@ final class MainScreenView: UIViewController, MainScreenInput {
 
     private lazy var activityIndicator = UIActivityIndicatorView(style: .large)
 
-    private lazy var cellProvider: CellProvider = { [weak self] collectionView, indexPath, item in
+    private lazy var cellProvider: CellProvider = { [weak self] (collectionView, indexPath, item) in
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellID, for: indexPath)
-
-        return cell
+        guard let photoCell = cell as? PhotoCollectionCell,
+              let viewModel = item as? PhotoCellViewModel else {
+            fatalError("Wrong cell has been used")
+        }
+        photoCell.configure(with: viewModel)
+        return photoCell
     }
 
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: TwoColumnLayout.layout)
     private lazy var dataSource = CollectionDataSource(collectionView: collectionView, cellProvider: cellProvider)
+
+    private var viewModels: [PhotoCellViewModel] = [] {
+        didSet {
+            if viewModels.count != 0 {
+                activityIndicator.stopAnimating()
+            }
+        }
+    }
 
     // MARK: - Initializable
 
@@ -59,9 +71,20 @@ final class MainScreenView: UIViewController, MainScreenInput {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        output?.viewAppeared()
     }
 
     // MARK: - Public methods
+
+    func update(with viewModels: [PhotoCellViewModel]) {
+        DispatchQueue.main.async {
+            self.viewModels.append(contentsOf: viewModels)
+            var snapshot = CollectionSnapshot()
+            snapshot.appendSections([.main])
+            snapshot.appendItems(self.viewModels)
+            self.dataSource.apply(snapshot)
+        }
+    }
 
     // MARK: - Private methods
 

@@ -16,10 +16,13 @@ final class PhotoCollectionCell: UICollectionViewCell {
 
     // MARK: - Initializable
 
+    let imageLoader: ImageLoaderProtocol = ImageLoader()
+
     // MARK: - Init
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        onInit()
     }
 
     required init?(coder: NSCoder) {
@@ -34,8 +37,22 @@ final class PhotoCollectionCell: UICollectionViewCell {
         imageView.image = nil
     }
 
-    // MARK: - Private methods
+    // MARK: - Public methods
 
+    func configure(with viewModel: PhotoCellViewModel) {
+        imageLoader.loadImage(with: viewModel.url) {[imageView, loadingIndicator] result in
+            if case .success(let image) = result {
+                DispatchQueue.main.async {
+                    imageView.image = image
+                    loadingIndicator.stopAnimating()
+                }
+            }
+        }
+    }
+
+
+    // MARK: - Private methods
+    
     private func onInit() {
         backgroundColor = .gray
         addSubview(imageView)

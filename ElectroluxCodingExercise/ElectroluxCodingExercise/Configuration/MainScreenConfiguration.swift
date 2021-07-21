@@ -10,7 +10,8 @@ import UIKit
 final class MainScreenConfiguration: ConfigurationProtocol {
     static func configurate() -> UIViewController {
         let view = MainScreenView()
-        let presenter = MainScreenPresenter(input: view)
+        let query = SearchQuery()
+        let presenter = MainScreenPresenter(input: view, searchQuery: query)
         view.output = presenter
         return view
     }

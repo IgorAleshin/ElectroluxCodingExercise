@@ -15,14 +15,18 @@ final class MainScreenPresenter: MainScreenOutput {
 
     // MARK: - Private properties
 
+    private var models: [PhotoModel] = []
+
     // MARK: - Initializable
 
     weak var input: MainScreenInput?
+    let searchQuery: SearchQueryProtocol
 
     // MARK: - Init
 
-    init(input: MainScreenInput) {
+    init(input: MainScreenInput, searchQuery: SearchQueryProtocol) {
         self.input = input
+        self.searchQuery = searchQuery
     }
 
     // MARK: - Life Cycle
@@ -34,7 +38,13 @@ final class MainScreenPresenter: MainScreenOutput {
     }
 
     func viewAppeared() {
-
+        searchQuery.perform(hashtag: "Electrolux", page: 1) { [weak self, input] result in
+            if case .success(let photos) = result {
+                self?.models.append(contentsOf: photos)
+                let viewModels = photos.map { PhotoCellViewModel(with: $0) }
+                input?.update(with: viewModels)
+            }
+        }
     }
 
     // MARK: - Private methods
