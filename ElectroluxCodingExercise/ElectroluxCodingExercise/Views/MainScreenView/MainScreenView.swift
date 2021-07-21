@@ -8,6 +8,11 @@
 import UIKit
 import SnapKit
 
+enum DisplayingMode {
+    case normal
+    case select
+}
+
 final class MainScreenView: UIViewController, MainScreenInput {
 
     private typealias CellProvider = UICollectionViewDiffableDataSourceReferenceCellProvider
@@ -19,6 +24,8 @@ final class MainScreenView: UIViewController, MainScreenInput {
     private enum Constants {
         static let cellID = "photoCell"
         static let title = "Flickr Photos"
+        static let selectString: String = "Select"
+        static let doneString: String = "Done"
     }
 
     private enum Sections {
@@ -42,32 +49,55 @@ final class MainScreenView: UIViewController, MainScreenInput {
     private lazy var cellProvider: CellProvider = { [weak self] (collectionView, indexPath, item) in
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellID, for: indexPath)
         guard let photoCell = cell as? PhotoCollectionCell,
-              let viewModel = item as? PhotoCellViewModel else {
+              let viewModel = item as? PhotoCellViewModel,
+              let displayingMode = self?.displayingMode else {
             fatalError("Wrong cell has been used")
         }
+        photoCell.displayingMode = displayingMode
         photoCell.configure(with: viewModel)
         return photoCell
     }
 
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: TwoColumnLayout.layout)
     private lazy var dataSource = CollectionDataSource(collectionView: collectionView, cellProvider: cellProvider)
+    private lazy var selectBarButton: UIBarButtonItem = {
+        let button = UIBarButtonItem()
+        button.title = Constants.selectString
+        button.target = self
+        button.action = #selector(selectButtonTapped(_:))
+        return button
+    }()
 
     private var viewModels: [PhotoCellViewModel] = []
+    private var selectedIndecies: [Int] = [] {
+        didSet {
+            if selectedIndecies.count > 0 {
+                let button = UIBarButtonItem()
+                button.target = self
+                button.action = #selector(saveButtonTapped(_:))
+                button.title = "Save (\(selectedIndecies.count))"
+                navigationItem.setLeftBarButton(button, animated: false)
+            } else {
+                navigationItem.setLeftBarButton(nil, animated: false)
+            }
+        }
+    }
 
-    // MARK: - Initializable
-
-    // MARK: - Init
+    private var displayingMode: DisplayingMode = .normal {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
 
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        setupNavigationBar()
         setupSearchBar()
         setupCollectionView()
         setupActivityIndicator()
-
-        title = Constants.title
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -134,13 +164,48 @@ final class MainScreenView: UIViewController, MainScreenInput {
         activityIndicator.startAnimating()
     }
 
+    private func setupNavigationBar() {
+        title = Constants.title
+        navigationItem.setRightBarButton(selectBarButton, animated: false)
+    }
+
     // MARK: - Actions
+
+    @objc private func selectButtonTapped(_ sender: UIBarButtonItem) {
+        let newDisplayingMode: DisplayingMode = displayingMode == .normal ? .select : .normal
+        sender.title = newDisplayingMode == .normal ? Constants.selectString : Constants.doneString
+        let allowMultiplySelection = newDisplayingMode == .normal ? false : true
+        collectionView.allowsMultipleSelection = allowMultiplySelection
+        displayingMode = newDisplayingMode
+        if newDisplayingMode == .normal {
+            selectedIndecies = []
+        }
+    }
+
+    @objc private func saveButtonTapped(_ sender: UIBarButtonItem) {
+
+    }
 }
 
 extension MainScreenView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
-        output?.openDetails(for: indexPath.row)
+        switch displayingMode {
+            case .normal:
+                collectionView.deselectItem(at: indexPath, animated: true)
+                output?.openDetails(for: indexPath.row)
+            case .select:
+                selectedIndecies.append(indexPath.row)
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        switch displayingMode {
+            case .select:
+                guard let index = selectedIndecies.firstIndex(of: indexPath.row) else { return }
+                selectedIndecies.remove(at: index)
+            case .normal:
+                break
+        }
     }
 }
 
