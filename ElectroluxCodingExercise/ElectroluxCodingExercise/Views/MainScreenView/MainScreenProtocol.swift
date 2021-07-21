@@ -8,11 +8,14 @@
 import Foundation
 
 protocol MainScreenInput: AnyObject {
-    func update(with viewModels: [PhotoCellViewModel])
+    func clear()
+    func update(with viewModels: [PhotoCellViewModel], withDelay: Bool)
 }
 
 protocol MainScreenOutput: AnyObject {
     func viewLoaded()
     func viewAppeared()
-    func fetchMore(for page: Int)
+    func fetch(for hashtag: String)
+    func fetch(for page: Int)
+    func clearResults()
 }
