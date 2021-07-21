@@ -20,13 +20,19 @@ final class MainScreenPresenter: MainScreenOutput {
     weak var input: MainScreenInput?
     let searchQuery: SearchQueryProtocol
     let router: MainScreenRouterProtocol
+    let imageSavingService: ImageSavingServiceProtocol
 
     // MARK: - Init
 
-    init(input: MainScreenInput, searchQuery: SearchQueryProtocol, router: MainScreenRouterProtocol) {
+    init(input: MainScreenInput,
+         searchQuery: SearchQueryProtocol,
+         router: MainScreenRouterProtocol,
+         imageSavingService: ImageSavingServiceProtocol
+    ) {
         self.input = input
         self.searchQuery = searchQuery
         self.router = router
+        self.imageSavingService = imageSavingService
     }
 
     // MARK: - Life Cycle
@@ -60,6 +66,16 @@ final class MainScreenPresenter: MainScreenOutput {
     func openDetails(for index: Int) {
         let model = models[index]
         router.openDetails(with: model)
+    }
+
+    func savePhotos(at indecies: [Int]) {
+        var modelsToSave: [PhotoModel] = []
+        indecies.forEach {
+            modelsToSave.append(models[$0])
+        }
+
+        guard !modelsToSave.isEmpty else { return }
+        imageSavingService.saveImages(for: modelsToSave)
     }
 
     // MARK: - Private methods

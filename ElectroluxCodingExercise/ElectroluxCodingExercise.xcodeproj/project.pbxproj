@@ -41,6 +41,8 @@
 		E8909E7126A7CD16003D2E8A /* ElectroluxCodingExerciseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8909E7026A7CD16003D2E8A /* ElectroluxCodingExerciseUITests.swift */; };
 		E8909E8226A7CFC4003D2E8A /* MainScreenProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8909E8126A7CFC4003D2E8A /* MainScreenProtocol.swift */; };
 		E8909E8426A7D004003D2E8A /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8909E8326A7D004003D2E8A /* MainScreenView.swift */; };
+		E891BAC926A86AAC0012553F /* ImageSavingServiceProtocl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E891BAC826A86AAC0012553F /* ImageSavingServiceProtocl.swift */; };
+		E891BACB26A86B050012553F /* ImageSavingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E891BACA26A86B050012553F /* ImageSavingService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +109,8 @@
 		E8909E7226A7CD16003D2E8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8909E8126A7CFC4003D2E8A /* MainScreenProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenProtocol.swift; sourceTree = "<group>"; };
 		E8909E8326A7D004003D2E8A /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
+		E891BAC826A86AAC0012553F /* ImageSavingServiceProtocl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSavingServiceProtocl.swift; sourceTree = "<group>"; };
+		E891BACA26A86B050012553F /* ImageSavingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSavingService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +194,7 @@
 		E85C09AF26A7DC7300C1C073 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				E85C09BE26A7E48400C1C073 /* ImageLoader */,
 				E85C09B626A7DD1E00C1C073 /* Queries */,
 				E85C09B026A7DC8E00C1C073 /* DTOs */,
 			);
@@ -293,8 +298,8 @@
 		E8909E4D26A7CD12003D2E8A /* ElectroluxCodingExercise */ = {
 			isa = PBXGroup;
 			children = (
+				E891BAC726A86A900012553F /* ImageSavingService */,
 				E85C09D426A8374800C1C073 /* Router */,
-				E85C09BE26A7E48400C1C073 /* ImageLoader */,
 				E85C09BB26A7DE6200C1C073 /* Domain */,
 				E85C09AF26A7DC7300C1C073 /* Data */,
 				E85C09A826A7D85500C1C073 /* Configuration */,
@@ -355,6 +360,15 @@
 				E8909E8326A7D004003D2E8A /* MainScreenView.swift */,
 			);
 			path = MainScreenView;
+			sourceTree = "<group>";
+		};
+		E891BAC726A86A900012553F /* ImageSavingService */ = {
+			isa = PBXGroup;
+			children = (
+				E891BAC826A86AAC0012553F /* ImageSavingServiceProtocl.swift */,
+				E891BACA26A86B050012553F /* ImageSavingService.swift */,
+			);
+			path = ImageSavingService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -607,6 +621,7 @@
 				E85C09A526A7D32300C1C073 /* TwoColumnLayout.swift in Sources */,
 				E85C09CB26A827ED00C1C073 /* DetailsScreenView.swift in Sources */,
 				E85C09A226A7D15100C1C073 /* PhotoCellViewModel.swift in Sources */,
+				E891BAC926A86AAC0012553F /* ImageSavingServiceProtocl.swift in Sources */,
 				E85C09B426A7DCD100C1C073 /* PhotoDTO.swift in Sources */,
 				E85C09C826A7E57500C1C073 /* ImageCache.swift in Sources */,
 				E85C09C426A7E4E000C1C073 /* ImageCacheProtocol.swift in Sources */,
@@ -621,6 +636,7 @@
 				E85C09D126A82BBD00C1C073 /* DetailsScreenViewModel.swift in Sources */,
 				E85C09CD26A8280300C1C073 /* DetailsScreenProtocol.swift in Sources */,
 				E85C09D826A8379900C1C073 /* MainScreenRouter.swift in Sources */,
+				E891BACB26A86B050012553F /* ImageSavingService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

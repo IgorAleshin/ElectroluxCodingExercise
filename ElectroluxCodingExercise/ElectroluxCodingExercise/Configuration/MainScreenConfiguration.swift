@@ -12,7 +12,14 @@ final class MainScreenConfiguration: ConfigurationProtocol {
         let view = MainScreenView()
         let query = SearchQuery()
         let router = MainScreenRouter(view: view)
-        let presenter = MainScreenPresenter(input: view, searchQuery: query, router: router)
+        let imageLoader = ImageLoader()
+        let imageSavingService = ImageSavingService(imageLoader: imageLoader)
+        let presenter = MainScreenPresenter(
+            input: view,
+            searchQuery: query,
+            router: router,
+            imageSavingService: imageSavingService
+        )
         view.output = presenter
         return view
     }
