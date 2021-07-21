@@ -32,6 +32,12 @@ final class MainScreenView: UIViewController, MainScreenInput {
     // MARK: - Private properties
 
     private lazy var activityIndicator = UIActivityIndicatorView(style: .large)
+    private lazy var searchBar: UISearchBar = {
+        let bar = UISearchBar()
+        bar.barStyle = .default
+        bar.searchTextField.text = "Electrolux"
+        return bar
+    }()
 
     private lazy var cellProvider: CellProvider = { [weak self] (collectionView, indexPath, item) in
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellID, for: indexPath)
@@ -46,13 +52,7 @@ final class MainScreenView: UIViewController, MainScreenInput {
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: TwoColumnLayout.layout)
     private lazy var dataSource = CollectionDataSource(collectionView: collectionView, cellProvider: cellProvider)
 
-    private var viewModels: [PhotoCellViewModel] = [] {
-        didSet {
-            if viewModels.count != 0 {
-                activityIndicator.stopAnimating()
-            }
-        }
-    }
+    private var viewModels: [PhotoCellViewModel] = []
 
     // MARK: - Initializable
 
@@ -63,6 +63,7 @@ final class MainScreenView: UIViewController, MainScreenInput {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        setupSearchBar()
         setupCollectionView()
         setupActivityIndicator()
 
@@ -76,14 +77,24 @@ final class MainScreenView: UIViewController, MainScreenInput {
 
     // MARK: - Public methods
 
-    func update(with viewModels: [PhotoCellViewModel]) {
-        DispatchQueue.main.async {
+    func update(with viewModels: [PhotoCellViewModel], withDelay: Bool) {
+        let delay: Double = withDelay ? 0.3 : 0
+        //small delay to avoid blinking if server responded too fast
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) { [activityIndicator] in
+            activityIndicator.stopAnimating()
             self.viewModels.append(contentsOf: viewModels)
             var snapshot = CollectionSnapshot()
             snapshot.appendSections([.main])
             snapshot.appendItems(self.viewModels)
             self.dataSource.apply(snapshot)
         }
+    }
+
+    func clear() {
+        viewModels = []
+        var snapshot = CollectionSnapshot()
+        snapshot.deleteAllItems()
+        self.dataSource.apply(snapshot)
     }
 
     // MARK: - Private methods
@@ -101,8 +112,17 @@ final class MainScreenView: UIViewController, MainScreenInput {
         view.addSubview(collectionView)
         collectionView.backgroundColor = .lightGray
         collectionView.snp.makeConstraints {
-            $0.left.right.top.equalTo(view.safeAreaLayoutGuide)
+            $0.top.equalTo(searchBar.snp.bottom)
+            $0.left.right.equalTo(view.safeAreaLayoutGuide)
             $0.bottom.equalToSuperview()
+        }
+    }
+
+    private func setupSearchBar() {
+        searchBar.delegate = self
+        view.addSubview(searchBar)
+        searchBar.snp.makeConstraints {
+            $0.top.left.right.equalTo(view.safeAreaLayoutGuide)
         }
     }
 
@@ -121,12 +141,42 @@ extension MainScreenView: UICollectionViewDelegate {
 
 }
 
+extension MainScreenView: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let text = searchBar.searchTextField.text == nil ? "" : searchBar.searchTextField.text!
+        if text.isEmpty {
+            output?.clearResults()
+        }
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchText = searchBar.searchTextField.text,
+              !searchText.isEmpty else {
+            return
+        }
+        output?.clearResults()
+        output?.fetch(for: searchText)
+        activityIndicator.startAnimating()
+        searchBar.showsCancelButton = false
+        searchBar.resignFirstResponder()
+    }
+
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        searchBar.showsCancelButton = false
+    }
+}
+
 extension MainScreenView: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let contentOffsetY = scrollView.contentOffset.y
         let viewHeight = scrollView.bounds.height
         guard let page = ceil(contentOffsetY / viewHeight).toInt() else { return }
-        output?.fetchMore(for: page)
+        output?.fetch(for: page)
     }
 }
 

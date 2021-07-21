@@ -35,6 +35,7 @@ final class PhotoCollectionCell: UICollectionViewCell {
         super.prepareForReuse()
         loadingIndicator.startAnimating()
         imageView.image = nil
+        imageLoader.cancel()
     }
 
     // MARK: - Public methods
