@@ -69,7 +69,7 @@ final class MainScreenView: UIViewController, MainScreenInput {
     }()
 
     private var viewModels: [PhotoCellViewModel] = []
-    private var selectedIndecies: [Int] = [] {
+    private var selectedIndecies: [IndexPath] = [] {
         didSet {
             if selectedIndecies.count > 0 {
                 let button = UIBarButtonItem()
@@ -183,7 +183,13 @@ final class MainScreenView: UIViewController, MainScreenInput {
     }
 
     @objc private func saveButtonTapped(_ sender: UIBarButtonItem) {
-
+        guard !selectedIndecies.isEmpty else { return }
+        let indecies = selectedIndecies.map { $0.row }
+        output?.savePhotos(at: indecies)
+        selectedIndecies.forEach {
+            collectionView.deselectItem(at: $0, animated: false)
+        }
+        selectedIndecies = []
     }
 }
 
@@ -194,14 +200,14 @@ extension MainScreenView: UICollectionViewDelegate {
                 collectionView.deselectItem(at: indexPath, animated: true)
                 output?.openDetails(for: indexPath.row)
             case .select:
-                selectedIndecies.append(indexPath.row)
+                selectedIndecies.append(indexPath)
         }
     }
 
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         switch displayingMode {
             case .select:
-                guard let index = selectedIndecies.firstIndex(of: indexPath.row) else { return }
+                guard let index = selectedIndecies.firstIndex(of: indexPath) else { return }
                 selectedIndecies.remove(at: index)
             case .normal:
                 break
