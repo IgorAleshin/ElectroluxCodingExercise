@@ -7,7 +7,9 @@
 
 import Foundation
 
-struct PhotoModel {
+protocol Model { }
+
+struct PhotoModel: Model {
     let id: String
     let secret: String
     let title: String

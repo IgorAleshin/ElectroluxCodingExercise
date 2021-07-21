@@ -8,5 +8,5 @@
 import UIKit
 
 protocol ConfigurationProtocol {
-    static func configurate() -> UIViewController
+    static func configurate(_ model: Model?) -> UIViewController
 }

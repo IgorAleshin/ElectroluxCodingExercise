@@ -9,10 +9,6 @@ import Foundation
 
 final class MainScreenPresenter: MainScreenOutput {
 
-    // MARK: - Nested Types
-
-    // MARK: - Public properties
-
     // MARK: - Private properties
 
     private var models: [PhotoModel] = []
@@ -23,17 +19,17 @@ final class MainScreenPresenter: MainScreenOutput {
 
     weak var input: MainScreenInput?
     let searchQuery: SearchQueryProtocol
+    let router: MainScreenRouterProtocol
 
     // MARK: - Init
 
-    init(input: MainScreenInput, searchQuery: SearchQueryProtocol) {
+    init(input: MainScreenInput, searchQuery: SearchQueryProtocol, router: MainScreenRouterProtocol) {
         self.input = input
         self.searchQuery = searchQuery
+        self.router = router
     }
 
     // MARK: - Life Cycle
-
-    // MARK: - Public methods
 
     func viewLoaded() {
 
@@ -61,6 +57,11 @@ final class MainScreenPresenter: MainScreenOutput {
         input?.clear()
     }
 
+    func openDetails(for index: Int) {
+        let model = models[index]
+        router.openDetails(with: model)
+    }
+
     // MARK: - Private methods
 
     private func performQuery(tag: String, page: Int, delay: Bool) {
@@ -72,7 +73,4 @@ final class MainScreenPresenter: MainScreenOutput {
             }
         }
     }
-
-    // MARK: - Actions
-
 }

@@ -138,7 +138,10 @@ final class MainScreenView: UIViewController, MainScreenInput {
 }
 
 extension MainScreenView: UICollectionViewDelegate {
-
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        output?.openDetails(for: indexPath.row)
+    }
 }
 
 extension MainScreenView: UISearchBarDelegate {
