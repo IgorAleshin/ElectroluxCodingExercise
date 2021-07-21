@@ -19,4 +19,5 @@ protocol MainScreenOutput: AnyObject {
     func fetch(for page: Int)
     func clearResults()
     func openDetails(for index: Int)
+    func savePhotos(at indecies: [Int])
 }

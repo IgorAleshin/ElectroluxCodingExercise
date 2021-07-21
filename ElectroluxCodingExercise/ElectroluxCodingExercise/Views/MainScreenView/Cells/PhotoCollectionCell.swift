@@ -9,10 +9,37 @@ import UIKit
 
 final class PhotoCollectionCell: UICollectionViewCell {
 
+    // MARK: - Nested Types
+
+    private enum Constants {
+        static let checkmarkWidthHeight: CGFloat = 24
+        static let checkmarkOffset: CGFloat = 8
+    }
+
+    // MARK: - Public properties
+
+    var displayingMode: DisplayingMode = .normal
+
+    override var isSelected: Bool {
+        didSet {
+            checkmarkView.isHidden = !isSelected
+        }
+    }
+
     // MARK: - Private properties
 
     private lazy var imageView = UIImageView()
     private lazy var loadingIndicator = UIActivityIndicatorView()
+
+    private lazy var checkmarkView: UIImageView = {
+        let image = UIImage(systemName: "checkmark.circle.fill")
+        let imageView = UIImageView(image: image)
+        imageView.backgroundColor = .white
+        imageView.tintColor = .systemBlue
+        imageView.isHidden = true
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
 
     // MARK: - Initializable
 
@@ -51,24 +78,39 @@ final class PhotoCollectionCell: UICollectionViewCell {
         }
     }
 
-
     // MARK: - Private methods
     
     private func onInit() {
         backgroundColor = .gray
+        setupImageView()
+        setupLoadingIndicator()
+        setupCheckmarkView()
+    }
+
+    private func setupImageView() {
         addSubview(imageView)
-        addSubview(loadingIndicator)
-        loadingIndicator.style = .medium
-        loadingIndicator.color = .black
         imageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+    }
+
+    private func setupLoadingIndicator() {
+        addSubview(loadingIndicator)
+        loadingIndicator.style = .medium
+        loadingIndicator.color = .black
         loadingIndicator.snp.makeConstraints {
             $0.center.equalToSuperview()
         }
         loadingIndicator.startAnimating()
     }
 
-    // MARK: - Actions
+    private func setupCheckmarkView() {
+        addSubview(checkmarkView)
+        checkmarkView.layer.cornerRadius = Constants.checkmarkWidthHeight/2
+        checkmarkView.snp.makeConstraints {
+            $0.left.top.equalToSuperview().offset(Constants.checkmarkOffset)
+            $0.width.height.equalTo(Constants.checkmarkWidthHeight)
+        }
+    }
 
 }
