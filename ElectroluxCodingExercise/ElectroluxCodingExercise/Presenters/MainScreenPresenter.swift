@@ -57,6 +57,11 @@ final class MainScreenPresenter: MainScreenOutput {
         input?.clear()
     }
 
+    func openDetails(for index: Int) {
+        let model = models[index]
+        router.openDetails(with: model)
+    }
+
     // MARK: - Private methods
 
     private func performQuery(tag: String, page: Int, delay: Bool) {

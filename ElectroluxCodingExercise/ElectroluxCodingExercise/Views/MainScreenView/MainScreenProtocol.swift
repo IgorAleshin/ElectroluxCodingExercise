@@ -18,4 +18,5 @@ protocol MainScreenOutput: AnyObject {
     func fetch(for hashtag: String)
     func fetch(for page: Int)
     func clearResults()
+    func openDetails(for index: Int)
 }
