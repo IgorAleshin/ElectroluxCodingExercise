@@ -10,6 +10,7 @@ import Foundation
 struct PhotoCellViewModel: Hashable {
     let id: String
     let url: String
+    private let randomSeed = UUID()
 
     init(with model: PhotoModel) {
         self.id = model.id
@@ -17,7 +18,6 @@ struct PhotoCellViewModel: Hashable {
     }
 
     func hash(into hasher: inout Hasher) {
-        let randomSeed = UUID()
         hasher.combine(id + url + "\(randomSeed)")
     }
 }

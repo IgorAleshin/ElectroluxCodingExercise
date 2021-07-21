@@ -16,6 +16,7 @@ final class MainScreenPresenter: MainScreenOutput {
     // MARK: - Private properties
 
     private var models: [PhotoModel] = []
+    private var lastLoadedPage = 1
 
     // MARK: - Initializable
 
@@ -39,6 +40,18 @@ final class MainScreenPresenter: MainScreenOutput {
 
     func viewAppeared() {
         searchQuery.perform(hashtag: "Electrolux", page: 1) { [weak self, input] result in
+            if case .success(let photos) = result {
+                self?.models.append(contentsOf: photos)
+                let viewModels = photos.map { PhotoCellViewModel(with: $0) }
+                input?.update(with: viewModels)
+            }
+        }
+    }
+
+    func fetchMore(for page: Int) {
+        guard page > lastLoadedPage else { return }
+        lastLoadedPage = page
+        searchQuery.perform(hashtag: "Electrolux", page: lastLoadedPage) { [weak self, input] result in
             if case .success(let photos) = result {
                 self?.models.append(contentsOf: photos)
                 let viewModels = photos.map { PhotoCellViewModel(with: $0) }
