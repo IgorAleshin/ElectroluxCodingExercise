@@ -30,6 +30,8 @@
 		E85C09CF26A82B2D00C1C073 /* DetailsScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85C09CE26A82B2D00C1C073 /* DetailsScreenPresenter.swift */; };
 		E85C09D126A82BBD00C1C073 /* DetailsScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85C09D026A82BBD00C1C073 /* DetailsScreenViewModel.swift */; };
 		E85C09D326A82D9000C1C073 /* DetailsScreenConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85C09D226A82D9000C1C073 /* DetailsScreenConfiguration.swift */; };
+		E85C09D626A8376300C1C073 /* MainScreenRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85C09D526A8376300C1C073 /* MainScreenRouterProtocol.swift */; };
+		E85C09D826A8379900C1C073 /* MainScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85C09D726A8379900C1C073 /* MainScreenRouter.swift */; };
 		E8909E4F26A7CD12003D2E8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8909E4E26A7CD12003D2E8A /* AppDelegate.swift */; };
 		E8909E5126A7CD12003D2E8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8909E5026A7CD12003D2E8A /* SceneDelegate.swift */; };
 		E8909E5626A7CD12003D2E8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8909E5426A7CD12003D2E8A /* Main.storyboard */; };
@@ -88,6 +90,8 @@
 		E85C09CE26A82B2D00C1C073 /* DetailsScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenPresenter.swift; sourceTree = "<group>"; };
 		E85C09D026A82BBD00C1C073 /* DetailsScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenViewModel.swift; sourceTree = "<group>"; };
 		E85C09D226A82D9000C1C073 /* DetailsScreenConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenConfiguration.swift; sourceTree = "<group>"; };
+		E85C09D526A8376300C1C073 /* MainScreenRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenRouterProtocol.swift; sourceTree = "<group>"; };
+		E85C09D726A8379900C1C073 /* MainScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenRouter.swift; sourceTree = "<group>"; };
 		E8909E4B26A7CD12003D2E8A /* ElectroluxCodingExercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElectroluxCodingExercise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8909E4E26A7CD12003D2E8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8909E5026A7CD12003D2E8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -255,6 +259,15 @@
 			path = DetailsScreenView;
 			sourceTree = "<group>";
 		};
+		E85C09D426A8374800C1C073 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				E85C09D526A8376300C1C073 /* MainScreenRouterProtocol.swift */,
+				E85C09D726A8379900C1C073 /* MainScreenRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		E8909E4226A7CD12003D2E8A = {
 			isa = PBXGroup;
 			children = (
@@ -280,6 +293,7 @@
 		E8909E4D26A7CD12003D2E8A /* ElectroluxCodingExercise */ = {
 			isa = PBXGroup;
 			children = (
+				E85C09D426A8374800C1C073 /* Router */,
 				E85C09BE26A7E48400C1C073 /* ImageLoader */,
 				E85C09BB26A7DE6200C1C073 /* Domain */,
 				E85C09AF26A7DC7300C1C073 /* Data */,
@@ -582,6 +596,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E85C09C226A7E4B300C1C073 /* ImageLoaderProtocol.swift in Sources */,
+				E85C09D626A8376300C1C073 /* MainScreenRouterProtocol.swift in Sources */,
 				E85C09AA26A7D88000C1C073 /* ConfigurationProtocol.swift in Sources */,
 				E85C09D326A82D9000C1C073 /* DetailsScreenConfiguration.swift in Sources */,
 				E8909E8226A7CFC4003D2E8A /* MainScreenProtocol.swift in Sources */,
@@ -605,6 +620,7 @@
 				E85C09B226A7DC9F00C1C073 /* ResponseDTO.swift in Sources */,
 				E85C09D126A82BBD00C1C073 /* DetailsScreenViewModel.swift in Sources */,
 				E85C09CD26A8280300C1C073 /* DetailsScreenProtocol.swift in Sources */,
+				E85C09D826A8379900C1C073 /* MainScreenRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
