@@ -33,13 +33,14 @@ final class DetailScreenView: UIViewController, DetailsScreenInput {
 
     private lazy var imageView: UIImageView = {
         let view = UIImageView()
-        view.contentMode = .scaleAspectFill
+        view.contentMode = .scaleAspectFit
         return view
     }()
 
     private lazy var label: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
+        label.numberOfLines = 0
         return label
     }()
 
@@ -62,6 +63,7 @@ final class DetailScreenView: UIViewController, DetailsScreenInput {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         setupView()
         output?.viewLoaded()
     }
