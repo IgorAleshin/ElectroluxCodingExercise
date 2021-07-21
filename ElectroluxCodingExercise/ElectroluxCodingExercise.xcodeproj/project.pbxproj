@@ -1,0 +1,594 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E8909E4F26A7CD12003D2E8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8909E4E26A7CD12003D2E8A /* AppDelegate.swift */; };
+		E8909E5126A7CD12003D2E8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8909E5026A7CD12003D2E8A /* SceneDelegate.swift */; };
+		E8909E5626A7CD12003D2E8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8909E5426A7CD12003D2E8A /* Main.storyboard */; };
+		E8909E5826A7CD16003D2E8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8909E5726A7CD16003D2E8A /* Assets.xcassets */; };
+		E8909E5B26A7CD16003D2E8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8909E5926A7CD16003D2E8A /* LaunchScreen.storyboard */; };
+		E8909E6626A7CD16003D2E8A /* ElectroluxCodingExerciseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8909E6526A7CD16003D2E8A /* ElectroluxCodingExerciseTests.swift */; };
+		E8909E7126A7CD16003D2E8A /* ElectroluxCodingExerciseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8909E7026A7CD16003D2E8A /* ElectroluxCodingExerciseUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E8909E6226A7CD16003D2E8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E8909E4326A7CD12003D2E8A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E8909E4A26A7CD12003D2E8A;
+			remoteInfo = ElectroluxCodingExercise;
+		};
+		E8909E6D26A7CD16003D2E8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E8909E4326A7CD12003D2E8A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E8909E4A26A7CD12003D2E8A;
+			remoteInfo = ElectroluxCodingExercise;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E8909E4B26A7CD12003D2E8A /* ElectroluxCodingExercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElectroluxCodingExercise.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8909E4E26A7CD12003D2E8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E8909E5026A7CD12003D2E8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E8909E5526A7CD12003D2E8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E8909E5726A7CD16003D2E8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E8909E5A26A7CD16003D2E8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E8909E5C26A7CD16003D2E8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8909E6126A7CD16003D2E8A /* ElectroluxCodingExerciseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElectroluxCodingExerciseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8909E6526A7CD16003D2E8A /* ElectroluxCodingExerciseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectroluxCodingExerciseTests.swift; sourceTree = "<group>"; };
+		E8909E6726A7CD16003D2E8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8909E6C26A7CD16003D2E8A /* ElectroluxCodingExerciseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElectroluxCodingExerciseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8909E7026A7CD16003D2E8A /* ElectroluxCodingExerciseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectroluxCodingExerciseUITests.swift; sourceTree = "<group>"; };
+		E8909E7226A7CD16003D2E8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E8909E4826A7CD12003D2E8A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8909E5E26A7CD16003D2E8A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8909E6926A7CD16003D2E8A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E8909E4226A7CD12003D2E8A = {
+			isa = PBXGroup;
+			children = (
+				E8909E4D26A7CD12003D2E8A /* ElectroluxCodingExercise */,
+				E8909E6426A7CD16003D2E8A /* ElectroluxCodingExerciseTests */,
+				E8909E6F26A7CD16003D2E8A /* ElectroluxCodingExerciseUITests */,
+				E8909E4C26A7CD12003D2E8A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E8909E4C26A7CD12003D2E8A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E8909E4B26A7CD12003D2E8A /* ElectroluxCodingExercise.app */,
+				E8909E6126A7CD16003D2E8A /* ElectroluxCodingExerciseTests.xctest */,
+				E8909E6C26A7CD16003D2E8A /* ElectroluxCodingExerciseUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E8909E4D26A7CD12003D2E8A /* ElectroluxCodingExercise */ = {
+			isa = PBXGroup;
+			children = (
+				E8909E4E26A7CD12003D2E8A /* AppDelegate.swift */,
+				E8909E5026A7CD12003D2E8A /* SceneDelegate.swift */,
+				E8909E5426A7CD12003D2E8A /* Main.storyboard */,
+				E8909E5726A7CD16003D2E8A /* Assets.xcassets */,
+				E8909E5926A7CD16003D2E8A /* LaunchScreen.storyboard */,
+				E8909E5C26A7CD16003D2E8A /* Info.plist */,
+			);
+			path = ElectroluxCodingExercise;
+			sourceTree = "<group>";
+		};
+		E8909E6426A7CD16003D2E8A /* ElectroluxCodingExerciseTests */ = {
+			isa = PBXGroup;
+			children = (
+				E8909E6526A7CD16003D2E8A /* ElectroluxCodingExerciseTests.swift */,
+				E8909E6726A7CD16003D2E8A /* Info.plist */,
+			);
+			path = ElectroluxCodingExerciseTests;
+			sourceTree = "<group>";
+		};
+		E8909E6F26A7CD16003D2E8A /* ElectroluxCodingExerciseUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E8909E7026A7CD16003D2E8A /* ElectroluxCodingExerciseUITests.swift */,
+				E8909E7226A7CD16003D2E8A /* Info.plist */,
+			);
+			path = ElectroluxCodingExerciseUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E8909E4A26A7CD12003D2E8A /* ElectroluxCodingExercise */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E8909E7526A7CD16003D2E8A /* Build configuration list for PBXNativeTarget "ElectroluxCodingExercise" */;
+			buildPhases = (
+				E8909E4726A7CD12003D2E8A /* Sources */,
+				E8909E4826A7CD12003D2E8A /* Frameworks */,
+				E8909E4926A7CD12003D2E8A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ElectroluxCodingExercise;
+			productName = ElectroluxCodingExercise;
+			productReference = E8909E4B26A7CD12003D2E8A /* ElectroluxCodingExercise.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E8909E6026A7CD16003D2E8A /* ElectroluxCodingExerciseTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E8909E7826A7CD16003D2E8A /* Build configuration list for PBXNativeTarget "ElectroluxCodingExerciseTests" */;
+			buildPhases = (
+				E8909E5D26A7CD16003D2E8A /* Sources */,
+				E8909E5E26A7CD16003D2E8A /* Frameworks */,
+				E8909E5F26A7CD16003D2E8A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E8909E6326A7CD16003D2E8A /* PBXTargetDependency */,
+			);
+			name = ElectroluxCodingExerciseTests;
+			productName = ElectroluxCodingExerciseTests;
+			productReference = E8909E6126A7CD16003D2E8A /* ElectroluxCodingExerciseTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E8909E6B26A7CD16003D2E8A /* ElectroluxCodingExerciseUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E8909E7B26A7CD16003D2E8A /* Build configuration list for PBXNativeTarget "ElectroluxCodingExerciseUITests" */;
+			buildPhases = (
+				E8909E6826A7CD16003D2E8A /* Sources */,
+				E8909E6926A7CD16003D2E8A /* Frameworks */,
+				E8909E6A26A7CD16003D2E8A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E8909E6E26A7CD16003D2E8A /* PBXTargetDependency */,
+			);
+			name = ElectroluxCodingExerciseUITests;
+			productName = ElectroluxCodingExerciseUITests;
+			productReference = E8909E6C26A7CD16003D2E8A /* ElectroluxCodingExerciseUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E8909E4326A7CD12003D2E8A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					E8909E4A26A7CD12003D2E8A = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					E8909E6026A7CD16003D2E8A = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = E8909E4A26A7CD12003D2E8A;
+					};
+					E8909E6B26A7CD16003D2E8A = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = E8909E4A26A7CD12003D2E8A;
+					};
+				};
+			};
+			buildConfigurationList = E8909E4626A7CD12003D2E8A /* Build configuration list for PBXProject "ElectroluxCodingExercise" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E8909E4226A7CD12003D2E8A;
+			productRefGroup = E8909E4C26A7CD12003D2E8A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E8909E4A26A7CD12003D2E8A /* ElectroluxCodingExercise */,
+				E8909E6026A7CD16003D2E8A /* ElectroluxCodingExerciseTests */,
+				E8909E6B26A7CD16003D2E8A /* ElectroluxCodingExerciseUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E8909E4926A7CD12003D2E8A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E8909E5B26A7CD16003D2E8A /* LaunchScreen.storyboard in Resources */,
+				E8909E5826A7CD16003D2E8A /* Assets.xcassets in Resources */,
+				E8909E5626A7CD12003D2E8A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8909E5F26A7CD16003D2E8A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8909E6A26A7CD16003D2E8A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E8909E4726A7CD12003D2E8A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E8909E4F26A7CD12003D2E8A /* AppDelegate.swift in Sources */,
+				E8909E5126A7CD12003D2E8A /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8909E5D26A7CD16003D2E8A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E8909E6626A7CD16003D2E8A /* ElectroluxCodingExerciseTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8909E6826A7CD16003D2E8A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E8909E7126A7CD16003D2E8A /* ElectroluxCodingExerciseUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E8909E6326A7CD16003D2E8A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E8909E4A26A7CD12003D2E8A /* ElectroluxCodingExercise */;
+			targetProxy = E8909E6226A7CD16003D2E8A /* PBXContainerItemProxy */;
+		};
+		E8909E6E26A7CD16003D2E8A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E8909E4A26A7CD12003D2E8A /* ElectroluxCodingExercise */;
+			targetProxy = E8909E6D26A7CD16003D2E8A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E8909E5426A7CD12003D2E8A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E8909E5526A7CD12003D2E8A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E8909E5926A7CD16003D2E8A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E8909E5A26A7CD16003D2E8A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E8909E7326A7CD16003D2E8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E8909E7426A7CD16003D2E8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E8909E7626A7CD16003D2E8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 34J496ZZHF;
+				INFOPLIST_FILE = ElectroluxCodingExercise/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "self.electrolux-coding-app.ElectroluxCodingExercise";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		E8909E7726A7CD16003D2E8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 34J496ZZHF;
+				INFOPLIST_FILE = ElectroluxCodingExercise/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "self.electrolux-coding-app.ElectroluxCodingExercise";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		E8909E7926A7CD16003D2E8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 34J496ZZHF;
+				INFOPLIST_FILE = ElectroluxCodingExerciseTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "self.electrolux-coding-app.ElectroluxCodingExerciseTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ElectroluxCodingExercise.app/ElectroluxCodingExercise";
+			};
+			name = Debug;
+		};
+		E8909E7A26A7CD16003D2E8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 34J496ZZHF;
+				INFOPLIST_FILE = ElectroluxCodingExerciseTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "self.electrolux-coding-app.ElectroluxCodingExerciseTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ElectroluxCodingExercise.app/ElectroluxCodingExercise";
+			};
+			name = Release;
+		};
+		E8909E7C26A7CD16003D2E8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 34J496ZZHF;
+				INFOPLIST_FILE = ElectroluxCodingExerciseUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "self.electrolux-coding-app.ElectroluxCodingExerciseUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ElectroluxCodingExercise;
+			};
+			name = Debug;
+		};
+		E8909E7D26A7CD16003D2E8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 34J496ZZHF;
+				INFOPLIST_FILE = ElectroluxCodingExerciseUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "self.electrolux-coding-app.ElectroluxCodingExerciseUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ElectroluxCodingExercise;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E8909E4626A7CD12003D2E8A /* Build configuration list for PBXProject "ElectroluxCodingExercise" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E8909E7326A7CD16003D2E8A /* Debug */,
+				E8909E7426A7CD16003D2E8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E8909E7526A7CD16003D2E8A /* Build configuration list for PBXNativeTarget "ElectroluxCodingExercise" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E8909E7626A7CD16003D2E8A /* Debug */,
+				E8909E7726A7CD16003D2E8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E8909E7826A7CD16003D2E8A /* Build configuration list for PBXNativeTarget "ElectroluxCodingExerciseTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E8909E7926A7CD16003D2E8A /* Debug */,
+				E8909E7A26A7CD16003D2E8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E8909E7B26A7CD16003D2E8A /* Build configuration list for PBXNativeTarget "ElectroluxCodingExerciseUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E8909E7C26A7CD16003D2E8A /* Debug */,
+				E8909E7D26A7CD16003D2E8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E8909E4326A7CD12003D2E8A /* Project object */;
+}
