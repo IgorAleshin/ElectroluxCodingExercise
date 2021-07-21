@@ -17,6 +17,7 @@ final class MainScreenPresenter: MainScreenOutput {
 
     private var models: [PhotoModel] = []
     private var lastLoadedPage = 1
+    private var lastSearchedHashtag = "Electrolux"
 
     // MARK: - Initializable
 
@@ -39,30 +40,39 @@ final class MainScreenPresenter: MainScreenOutput {
     }
 
     func viewAppeared() {
-        searchQuery.perform(hashtag: "Electrolux", page: 1) { [weak self, input] result in
-            if case .success(let photos) = result {
-                self?.models.append(contentsOf: photos)
-                let viewModels = photos.map { PhotoCellViewModel(with: $0) }
-                input?.update(with: viewModels)
-            }
-        }
+        performQuery(tag: lastSearchedHashtag, page: lastLoadedPage, delay: true)
     }
 
-    func fetchMore(for page: Int) {
+    func fetch(for hashtag: String) {
+        lastSearchedHashtag = hashtag
+        lastLoadedPage = 1
+        input?.clear()
+        performQuery(tag: hashtag, page: lastLoadedPage, delay: true)
+    }
+
+    func fetch(for page: Int) {
         guard page > lastLoadedPage else { return }
         lastLoadedPage = page
-        searchQuery.perform(hashtag: "Electrolux", page: lastLoadedPage) { [weak self, input] result in
-            if case .success(let photos) = result {
-                self?.models.append(contentsOf: photos)
-                let viewModels = photos.map { PhotoCellViewModel(with: $0) }
-                input?.update(with: viewModels)
-            }
-        }
+        performQuery(tag: lastSearchedHashtag, page: page, delay: false)
+    }
+
+    func clearResults() {
+        models = []
+        input?.clear()
     }
 
     // MARK: - Private methods
 
-    // MARK: - Actions
+    private func performQuery(tag: String, page: Int, delay: Bool) {
+        searchQuery.perform(hashtag: tag, page: page) { [weak self, input] result in
+            if case .success(let photos) = result {
+                self?.models.append(contentsOf: photos)
+                let viewModels = photos.map { PhotoCellViewModel(with: $0) }
+                input?.update(with: viewModels, withDelay: delay)
+            }
+        }
+    }
 
+    // MARK: - Actions
 
 }
